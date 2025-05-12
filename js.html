@@ -8,11 +8,11 @@
 <body>
     <h1>Cadastro de produtos</h1>
     <hr />
-    <form>
+    <form id="meu form" onsubmit="gravarProduto(event)">
         <table>
             <tr>
                 <td>Nome do produtos:</td>
-                <td><input type="text" id="nomeProduto" maxlength="50" /></td>
+                <td><input type="text" id="nomeProduto" maxlength="50" required /></td>
             </tr>
             <tr>
                 <td>Quantidade estoque:</td>
@@ -30,6 +30,7 @@
                 <td colspan="2">
                     <button type="button" onclick="gravarProduto()">Gravar</button>
                     <button type="reset">Limpar</button>
+                    <button tyoe="submit">Enviar</button>
                 </td>
             </tr>
         </table>

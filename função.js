@@ -1,6 +1,8 @@
 var listaProdutos = [];
+var emAlteracao = false;
 
-function gravarProduto() {
+function gravarProduto(event) {
+    event.prevetDefault();
     let nomeProduto = document.getElementById('nomeProduto').value;
     let qtdEstoque = document.getElementById('qtdEstoque').value;
     let valorUnitario = document.getElementById('valorUnitario').value;
@@ -13,7 +15,14 @@ function gravarProduto() {
         fornecedor: fornecedor
     }
 
-    listaProdutos.push(produto);
+    if (emAlteracao) {
+        listaProdutos[indiceElementoAlteracao] = produto;
+    }
+    else{
+        listaProdutos.push(produto);
+    }
+    
+    limpar();
     listarProdutos();
 }
 
@@ -45,4 +54,18 @@ function excluir(indice) {
         listarProdutos();
     }
 
+}
+
+function alterar(indice) {
+    emAlteracao = true;
+    indiceElementoAlteracao = indice;
+    document.getElementById('nomeProduto').value = listaProdutos[indice].nomeProduto;
+    document.getElementById('qtdEstoque').value = listaProdutos[indice].qtdEstoque;
+    document.getElementById('valorUnitario').value = listaProdutos[indice].valorUnitario;
+    document.getElementById('fornecedor').value = listaProdutos[indice].fornecedor;
+}
+
+function limpar() {
+    document.getElementById('meu form').reset();
+    emAlteração = false;
 }
