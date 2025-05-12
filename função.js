@@ -25,13 +25,21 @@ function listarProdutos() {
         listaProdutos.forEach((produto, indice) => {
             conteudo += `
                 <tr>
+                    <td>${indice}</td>
                     <td>${produto.nomeProduto}</td>
                     <td>${produto.qtdEstoque}</td>
                     <td>${produto.valorUnitario}</td>
                     <td>${produto.fornecedor}</td>
+                    <td><button type"button">Alterar</button></td>
+                    <td><buttontype"button" onclick="excluir(${indice})">Excluir</button></td>
                 </tr>
             `;
         });
     }
     document.getElementById('conteudo').innerHTML = conteudo;
+}
+
+function excluir(indice) {
+    listaProdutos.splice(indice, 1);
+    listarProdutos();
 }
