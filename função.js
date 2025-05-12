@@ -31,7 +31,7 @@ function listarProdutos() {
                     <td>${produto.valorUnitario}</td>
                     <td>${produto.fornecedor}</td>
                     <td><button type"button">Alterar</button></td>
-                    <td><buttontype"button" onclick="excluir(${indice})">Excluir</button></td>
+                    <td><button type"button" onclick="excluir(${indice})">Excluir</button></td>
                 </tr>
             `;
         });
@@ -40,6 +40,9 @@ function listarProdutos() {
 }
 
 function excluir(indice) {
-    listaProdutos.splice(indice, 1);
-    listarProdutos();
+    if (confirm('Deseja realmente excluir esse produto?')) {
+        listaProdutos.splice(indice, 1);
+        listarProdutos();
+    }
+
 }
