@@ -1,8 +1,9 @@
 var listaProdutos = [];
 var emAlteracao = false;
+var indiceElementoAlteracao = -1;
 
 function gravarProduto(event) {
-    event.prevetDefault();
+    event.preventDefault();
     let nomeProduto = document.getElementById('nomeProduto').value;
     let qtdEstoque = document.getElementById('qtdEstoque').value;
     let valorUnitario = document.getElementById('valorUnitario').value;
@@ -18,8 +19,8 @@ function gravarProduto(event) {
     if (emAlteracao) {
         listaProdutos[indiceElementoAlteracao] = produto;
     }
-    else{
-        listaProdutos.push(produto);
+    else {
+        listaProdutos.push(produto);  
     }
     
     limpar();
@@ -39,7 +40,7 @@ function listarProdutos() {
                     <td>${produto.qtdEstoque}</td>
                     <td>${produto.valorUnitario}</td>
                     <td>${produto.fornecedor}</td>
-                    <td><button type"button">Alterar</button></td>
+                    <td><button type"button" onclick="alterar(${indice})">Alterar</button></td>
                     <td><button type"button" onclick="excluir(${indice})">Excluir</button></td>
                 </tr>
             `;
@@ -49,11 +50,10 @@ function listarProdutos() {
 }
 
 function excluir(indice) {
-    if (confirm('Deseja realmente excluir esse produto?')) {
+    if (confirm('Deseja realmente excluir este produto?')) {
         listaProdutos.splice(indice, 1);
-        listarProdutos();
+        listarProdutos();   
     }
-
 }
 
 function alterar(indice) {
@@ -66,6 +66,6 @@ function alterar(indice) {
 }
 
 function limpar() {
-    document.getElementById('meu form').reset();
-    emAlteração = false;
+    document.getElementById('meuForm').reset();
+    emAlteracao = false;
 }
