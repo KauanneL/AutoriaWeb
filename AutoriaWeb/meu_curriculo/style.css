@@ -27,7 +27,7 @@ header {
   text-align: center;
 }
 
-header .fotinha {
+header .container {
   display: flex;
   align-items: center;
   justify-content: center;
