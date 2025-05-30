@@ -11,6 +11,14 @@ body {
   color: #333;
 }
 
+body {
+  background-image: url('fundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
 /* Header */
 header {
   background-color: #6d0f99;
@@ -19,7 +27,7 @@ header {
   text-align: center;
 }
 
-header .container {
+header .fotinha {
   display: flex;
   align-items: center;
   justify-content: center;
